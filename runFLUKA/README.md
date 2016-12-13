@@ -1,11 +1,11 @@
-# PBS script to run FLUKA jobs
-# Can be implemented with other scheduler (slurm, condor, etc..) 
+#PBS script to run FLUKA jobs
+#Can be implemented with other scheduler (slurm, condor, etc..) 
 
 #Requirements: 
---local installation of FLUKA package (32bit or 64) that is accessible to other nodes (in case of running in a cluster) 
--- Fortran compiler: gfortran (64bits) g77 (32bits), installed in all the cluster nodes
+- local installation of FLUKA package (32bit or 64) that is accessible to other nodes (in case of running in a cluster) 
+- Fortran compiler: gfortran (64bits) g77 (32bits), installed in all the cluster nodes
 
-Steps: 
+#Steps: 
 
 
 - produce a tarball with the content of fluka_standalone directory:
