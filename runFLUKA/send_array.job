@@ -1,0 +1,47 @@
+#!/bin/bash
+#PBS -N fluka_sa
+#PBS -J 1001-2000
+#PBS -l walltime=8:00:00
+#PBS -l mem=8gb
+#PBS -m bae
+#PBS -j oe
+#PBS -o /panfs/vol/a/alherna39/runFLUKA/log/
+
+echo "executing subjob $PBS_ARRAY_INDEX of job $PBS_JOBID on $(hostname)"
+
+export work_folder=CMSv3000_MB0
+
+mkdir -p $PBS_O_WORKDIR/$work_folder/$PBS_ARRAY_INDEX
+
+cd $PBS_O_WORKDIR/$work_folder/$PBS_ARRAY_INDEX
+
+tar -zxvf /panfs/vol/a/alherna39/runFLUKA/fluka_standalone.tgz 
+
+export FLUPRO=/panfs/vol/a/alherna39/testfluka_laptop/
+export FLUFOR=g77
+
+cd run_fluka/
+
+cp  templates/CMSpp_v3.0.0.0.inp CMSpp_template.inp 
+
+python compile.py
+python randseed.py
+
+\rm *.out
+\rm *.err
+\rm runFLUKA*
+rm cmssw501.fieldmap
+rm LBQ-KEK.MAP
+#\rm *.py
+
+
+
+
+
+
+
+
+
+
+
+
