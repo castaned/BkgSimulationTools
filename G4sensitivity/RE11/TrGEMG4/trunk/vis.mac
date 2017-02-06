@@ -1,0 +1,63 @@
+# $Id: vis.mac 32 2010-01-14 12:58:19Z adotti $
+#
+# Macro file for the initialization phase of "task2.cc"
+# when runing in interactive mode
+#
+# Sets some default verbose
+#
+/control/verbose 2
+/run/verbose 2
+#
+# Create a scene handler for a specific graphics system
+# (Edit the next line(s) to choose another graphics system)
+#
+#/vis/open OGLSX 600x600-0+0
+/vis/open OGL
+#/vis/open OGLIQt 600x600-0+0
+#
+#/vis/open OGLIXm
+#####/vis/open OGLSXm
+####/vis/open HepRepXML
+#
+####/vis/open DAWNFILE
+#
+# draw scene
+#
+/vis/drawVolume
+
+/vis/viewer/set/viewpointThetaPhi -90 0 deg
+/vis/viewer/zoom 0.8
+
+# Geant Particle Source parameters
+/gps/particle gamma
+#/gps/pos/type Surface
+#/gps/pos/shape Sphere
+#/gps/pos/centre 0. 0. 0. cm
+#/gps/pos/radius 1 m
+#/gps/ang/type focused
+
+/gps/pos/type Beam
+#/gps/position 0. 0. 2.743 cm
+/gps/position 0. 0. -1 cm
+/gps/pos/sigma_x 1. mm
+/gps/pos/sigma_y 1. mm
+
+/gps/ang/type beam2d
+/gps/ang/sigma_x 2. mrad
+/gps/ang/sigma_y 2. mrad
+/gps/ang/rot1 -1. 0. 1.
+
+#
+# for drawing the tracks
+/vis/scene/add/trajectories
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 1
+# (if too many tracks cause core dump => /tracking/storeTrajectory 0)
+# for drawing the hits, uncomment next line
+/vis/scene/add/hits
+# (if you prefer refreshing each event, comment out next line)
+#/vis/scene/endOfEventAction accumulate
+
+/run/setCut 10 nm
+#/run/beamOn 10

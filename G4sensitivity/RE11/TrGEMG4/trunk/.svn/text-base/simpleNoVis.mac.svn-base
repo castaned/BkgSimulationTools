@@ -1,0 +1,39 @@
+#
+# simple.mac
+# simple commands
+#
+
+#/vis/open OGLIX
+#/vis/drawVolume
+#/vis/viewer/set/viewpointThetaPhi -90 0
+
+#/vis/scene/add/hits
+#/vis/scene/add/trajectories
+
+/gps/particle neutron 
+/gps/energy 1000.00000000000 MeV
+
+/gps/pos/type Beam
+#/gps/position 0. 0. 3. cm
+/gps/position 0. 0. -1 cm
+/gps/pos/sigma_x 0. mm
+/gps/pos/sigma_y 0. mm
+/gps/ang/type beam2d
+/gps/ang/sigma_x 0. mrad
+/gps/ang/sigma_y 0. mrad
+/gps/ang/rot1 -1. 0. 1.
+
+#/gps/pos/type Surface
+#/gps/pos/shape Sphere
+#/gps/pos/centre 0. 0. 0. cm
+#/gps/pos/radius 1 m
+#/gps/ang/type focused
+
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+/run/setCutForAGivenParticle gamma 1 um
+/run/setCutForAGivenParticle e- 1 nm
+/run/setCutForAGivenParticle e+ 1 um
+/run/beamOn 100000

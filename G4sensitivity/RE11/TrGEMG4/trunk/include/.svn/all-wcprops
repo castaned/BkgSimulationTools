@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/fzenoni/TrGEMG4/!svn/ver/4/trunk/include
+END
+TrGEMPrimaryGeneratorAction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMPrimaryGeneratorAction.hh
+END
+RPCDetectorConstruction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/include/RPCDetectorConstruction.hh
+END
+StepMaxMessenger.hh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/StepMaxMessenger.hh
+END
+TrGEMStackingAction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMStackingAction.hh
+END
+TrGEMRunAction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMRunAction.hh
+END
+TrGEMHolesParameterisation.hh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMHolesParameterisation.hh
+END
+GasGapHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/GasGapHit.hh
+END
+UniPVRPCDetectorConstruction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/fzenoni/TrGEMG4/!svn/ver/4/trunk/include/UniPVRPCDetectorConstruction.hh
+END
+TrGEMPhysicsList.hh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMPhysicsList.hh
+END
+TrGEMEventAction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMEventAction.hh
+END
+StepMax.hh
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/StepMax.hh
+END
+TrGEMAnalysis.hh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMAnalysis.hh
+END
+TrGEMDetectorConstruction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMDetectorConstruction.hh
+END
+TrGEMSteppingAction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/TrGEMSteppingAction.hh
+END
+GasGapSensitiveDetector.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/include/GasGapSensitiveDetector.hh
+END

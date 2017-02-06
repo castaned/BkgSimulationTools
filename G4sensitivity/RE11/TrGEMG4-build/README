@@ -1,0 +1,55 @@
+Code for the simulation of the sensitivity of a RE1/1 chamber to neutrons, photons, charged particles.
+
+The source files are in the TrGEMG4/trunk directory.
+The main file is  TrGEMG4.cc, were you can set the physics list (we use FTFP_BERT_HP),
+the DetectorConstruction class and the PrimaryGeneratorAction class.
+The GasGapSensitiveDetector class basically is used to collect the useful information in the event.
+ 
+Instructions to run: 
+Modify the file paths contained in the following files to make them consistent with your environment:
+- TrGEMG4-build/build.sh
+- TrGEMG4/trunk/src/GE1PrimaryGeneratorAction.cc
+- TrGEMG4/trunk/src/GE1GammaPrimaryGeneratorAction.cc
+- TrGEMG4/trunk/src/GE1ElePrimaryGeneratorAction.cc
+- TrGEMG4/trunk/src/GE1PosPrimaryGeneratorAction.cc
+
+Move in the TrGEMG4-build directory and compile the application by doing
+>./build.sh 
+>make
+
+To run do
+>./TrGEMG4 Neutron.mac
+
+Please note that  Neutron.mac contains the settings for the tracking cuts.
+It is important to set the cut for protons to 0 if you deal with neutrons.  
+
+In the output root file (task3.root) you can find two trees.
+
+In the MyRun Tree you can find some information such as:
+
+* the whole energy deposited in the event in each of the gaps.
+  For instance, for the drift gap: driftEdep (total energy) and driftEdepI (ionizing energy only). 
+ These quantities are in fact arrays with nine components. 
+ If you are interested in the whole energy deposition just take the first one (es. driftEdepI[0]) 
+ The other ones are the energies deposited within certain time windows. 
+* The energy of the primary particle (primaryEne)
+* Vectors with informations of the particles entering the gas gaps,
+ such as the particle pdg code (gapTrackPart), the particle generation process (gapTrackGenProcess),
+  the generation volume (gapTrackVolume) and the energy (gapTrackEnergy)
+
+In the Garfield tree information about all the particles entering the drift gap are listed (pdg code, energy, position, momentum) .
+
+To obtain the sensitivity VS energy plot you have to make a different run for each energy value.
+The sensitivity is not directly stored in the root file. 
+You have to run on the output tree MyRun, counting the events with at least one charged particle
+in the gas gap (i.e. counting the events where the chargeGap variable is set to 1)
+over the number of events where the primary particle has actually reached the surface of the chamber
+(i.e. counting the events where the neutronSensitivity variable is set to 1).
+
+A simple example of how to read the tree and compute the sensitivity can be found in runSensitivity.C.
+
+The sensitivity VS energy curves can be convoluted with the energy spectra of background particles that are stored in
+the flux_*_ge11.txt files (obtained with FOCUS v1.0.0.0) 
+The first number in the txt represents the overall statistics in the energy spectra,
+and it is useful to compute the statistical error on the spectra. 
+Then you have the particle energy (first column) and the associated frequency (second column).

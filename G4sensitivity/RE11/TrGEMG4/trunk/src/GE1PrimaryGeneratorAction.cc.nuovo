@@ -1,0 +1,178 @@
+//
+// ********************************************************************
+// * License and Disclaimer                                           *
+// *                                                                  *
+// * The  Geant4 software  is  copyright of the Copyright Holders  of *
+// * the Geant4 Collaboration.  It is provided  under  the terms  and *
+// * conditions of the Geant4 Software License,  included in the file *
+// * LICENSE and available at  http://cern.ch/geant4/license .  These *
+// * include a list of copyright holders.                             *
+// *                                                                  *
+// * Neither the authors of this software system, nor their employing *
+// * institutes,nor the agencies providing financial support for this *
+// * work  make  any representation or  warranty, express or implied, *
+// * regarding  this  software system or assume any liability for its *
+// * use.  Please see the license in the file  LICENSE  and URL above *
+// * for the full disclaimer and the limitation of liability.         *
+// *                                                                  *
+// * This  code  implementation is the result of  the  scientific and *
+// * technical work of the GEANT4 collaboration.                      *
+// * By using,  copying,  modifying or  distributing the software (or *
+// * any work based  on the software)  you  agree  to acknowledge its *
+// * use  in  resulting  scientific  publications,  and indicate your *
+// * acceptance of all terms of the Geant4 Software license.          *
+// ********************************************************************
+//
+/// \file radioactivedecay/rdecay01/src/IsoPrimaryGeneratorActionScan.cc
+/// \brief Implementation of the IsoPrimaryGeneratorActionScan class
+//
+//
+// $Id$
+// 
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo...... 
+
+#include "GE1PrimaryGeneratorAction.hh"
+
+#include "G4Event.hh"
+#include "G4ParticleTable.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4Geantino.hh"
+#include "G4SystemOfUnits.hh"
+#include "Randomize.hh"
+
+#include "G4ParticleGun.hh"
+#include "G4Event.hh"
+#include <fstream>
+
+G4double CosX[100],CosY[51],CosXmax,CosYmax;
+G4double ValX[100],ValY[51],ValXmax,ValYmax;
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+GE1PrimaryGeneratorAction::GE1PrimaryGeneratorAction(
+      const G4String& particleName,
+      G4double energy,
+      G4ThreeVector position,
+      G4ThreeVector momentumDirection) :
+   G4VUserPrimaryGeneratorAction(),
+   fParticleGun(0)
+{
+  G4int n_particle = 1;
+//  fParticleGun  = new G4ParticleGun(n_particle);
+ G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+  G4ParticleDefinition* particlen = particleTable -> FindParticle("neutron");
+ fParticleGun  = new G4ParticleGun(particlen,n_particle);
+   
+// set energy
+ 
+  fParticleGun->SetParticleEnergy(energy);
+  
+  	std::ifstream inX;
+ 	inX.open("/media/scratch/fallavolitaf/RPCsensitivity/TrGEMG4/trunk/UserData/GE1_neutronCosX.out");
+
+    G4double CosXtemp,ValXtemp;
+
+		inX >> CosXmax >> ValXmax ;
+	for(G4int i=0; i<100;i++){
+		inX >> CosXtemp >> ValXtemp ;
+	CosX[i]=CosXtemp;        
+	ValX[i]=ValXtemp;        
+	}
+
+     inX.close();   
+  
+  	std::ifstream inY;
+ 	inY.open("/media/scratch/fallavolitaf/RPCsensitivity/TrGEMG4/trunk/UserData/GE1_neutronCosY.out");
+
+    G4double CosYtemp,ValYtemp;
+
+		inY >> CosYmax >> CosYmax ;
+	for(G4int i=0; i<51;i++){
+		inY >> CosYtemp >> CosYtemp ;
+	CosY[i]=CosYtemp;        
+	ValY[i]=ValYtemp;        
+	}
+
+     inY.close();   
+ 
+         
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+GE1PrimaryGeneratorAction::~GE1PrimaryGeneratorAction()
+{
+  delete fParticleGun;
+  
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+void GE1PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+{    
+G4cout<<"ci sono"<<G4endl;
+
+     //set direction
+     G4double cosx,cosy,cosz;
+     G4double valx,valy,valz;
+     G4double segnoY,segnoZ;
+     G4int  ifuncX=-1,ifuncY=-1 ;
+     G4double CX,CY,CZ;
+
+       
+     while (1){
+        cosx=-1+G4UniformRand()*2*CosXmax;
+        valx=G4UniformRand()*ValXmax;
+
+        for(G4int i=0; i<100;i++){
+           if(cosx<CosX[i]) {ifuncX=i;break;}
+         }
+ 
+         if(valx<ValX[ifuncX]) break;
+
+       }
+
+     CX = cosx; 
+   
+     segnoY=-0.5+G4UniformRand();
+
+     while (1){
+        cosy=-1+G4UniformRand();
+        valy=G4UniformRand()*ValYmax;
+
+        for(G4int i=0; i<51;i++){
+           if(cosy<CosY[i]) {ifuncY=i;break;}
+         }
+ 
+         if(valy<ValY[ifuncY]) break;
+
+       }
+   if(segnoY>0) {CY = cosy;} 
+   if(segnoY<=0) {CY = -cosy;} 
+
+     segnoZ=-0.5+G4UniformRand();
+ 
+   if(segnoZ>0)  {CZ = sqrt(1-CX*CX-CY*CY);}
+   if(segnoZ<=0) {CZ = -sqrt(1-CX*CX-CY*CY);}
+ 
+
+  
+   fParticleGun->SetParticleMomentumDirection((G4ThreeVector(-CX,CY,-CZ))); 
+   
+   G4cout<<-CX<<"	"<<CY<<"	"<<-CZ<<G4endl;
+
+//Rettangolo che include la gem
+//set position
+ G4double gX = G4UniformRand()*45.5-22.75;
+ G4double gY = G4UniformRand()*99-49.5;
+ fParticleGun->SetParticlePosition(G4ThreeVector(gX,gY,-1.));
+
+
+  //create vertex
+  //   
+
+  fParticleGun->GeneratePrimaryVertex(anEvent);
+
+}
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

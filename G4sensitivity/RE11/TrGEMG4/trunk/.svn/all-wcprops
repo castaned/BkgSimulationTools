@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/fzenoni/TrGEMG4/!svn/ver/4/trunk
+END
+FindROOT.cmake
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/FindROOT.cmake
+END
+simpleNoVis.mac
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/simpleNoVis.mac
+END
+simpleVis.mac
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/simpleVis.mac
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/CMakeLists.txt
+END
+TrGEMG4.cc
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/fzenoni/TrGEMG4/!svn/ver/4/trunk/TrGEMG4.cc
+END
+vis.mac
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/vis.mac
+END

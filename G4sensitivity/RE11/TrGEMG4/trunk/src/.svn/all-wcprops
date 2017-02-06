@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/fzenoni/TrGEMG4/!svn/ver/4/trunk/src
+END
+StepMax.cc
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/StepMax.cc
+END
+TrGEMAnalysis.cc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMAnalysis.cc
+END
+TrGEMDetectorConstruction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/src/TrGEMDetectorConstruction.cc
+END
+TrGEMSteppingAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMSteppingAction.cc
+END
+GasGapSensitiveDetector.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/src/GasGapSensitiveDetector.cc
+END
+TrGEMPrimaryGeneratorAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMPrimaryGeneratorAction.cc
+END
+RPCDetectorConstruction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/src/RPCDetectorConstruction.cc
+END
+StepMaxMessenger.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/StepMaxMessenger.cc
+END
+TrGEMStackingAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMStackingAction.cc
+END
+TrGEMRunAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMRunAction.cc
+END
+TrGEMHolesParameterisation.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMHolesParameterisation.cc
+END
+GasGapHit.cc
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/GasGapHit.cc
+END
+UniPVRPCDetectorConstruction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/fzenoni/TrGEMG4/!svn/ver/4/trunk/src/UniPVRPCDetectorConstruction.cc
+END
+.GasGapSensitiveDetector.cc.swp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/fzenoni/TrGEMG4/!svn/ver/3/trunk/src/.GasGapSensitiveDetector.cc.swp
+END
+TrGEMPhysicsList.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMPhysicsList.cc
+END
+TrGEMEventAction.cc
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/fzenoni/TrGEMG4/!svn/ver/1/trunk/src/TrGEMEventAction.cc
+END

@@ -1,0 +1,30 @@
+#
+# simple.mac
+# simple commands
+#
+
+/vis/open OGL
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi -90 0
+
+/vis/scene/add/hits
+/vis/scene/add/trajectories
+
+/gps/particle mu-
+/gps/energy 2. GeV
+
+/gps/pos/type Beam
+/gps/position 0. 0. -1. mm
+/gps/pos/sigma_x 0.1 mm
+/gps/pos/sigma_y 0.1 mm
+
+/gps/ang/type beam2d
+/gps/ang/sigma_x 0.1 mrad
+/gps/ang/sigma_y 0.1 mrad
+/gps/ang/rot1 -1. 0. 0.
+
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+/run/beamOn 1000
